@@ -15,7 +15,7 @@ app.get('/', (req,res) => {
 	res.status(200).send(template());
 });
 
-let port = process.env.PORT || 6000;
+let port = process.env.PORT || 3000;
 
 app.listen(port, function onStart(err){
 	if(err){
@@ -26,9 +26,15 @@ app.listen(port, function onStart(err){
 });
 
 // Database Connection URL
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/mernSimpleSetup'
-// Use connect method to connect to the server
-MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },(err, db)=>{
-  console.log("Connected successfully to mongodb server")
-  db.close()
-})
+//const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/mernSimpleSetup'
+
+// Use connect method to connect to the server 
+//MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },(err, db)=>{
+//  console.log("Connected successfully to mongodb server")
+//  db.close()
+//})
+
+// Morgan configuration
+const morgan = require('morgan');
+app.use(morgan('tiny'));
+morgan(':method :url :status :res[content-length] - :response-time ms');
