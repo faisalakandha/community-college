@@ -20,14 +20,20 @@
   "homepage": "https://github.com/faisalakandha/community-college#readme",
   "dependencies": {
     "@hot-loader/react-dom": "16.13.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "4.17.1",
+    "helmet": "^4.4.1",
     "mongodb": "3.5.5",
     "mongoose": "^5.11.18",
     "morgan": "^1.10.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-hot-loader": "4.12.20"
+    "react-hot-loader": "4.12.20",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",

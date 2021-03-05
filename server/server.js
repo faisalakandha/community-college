@@ -1,9 +1,7 @@
 import path from 'path';
 import config from './../config/config'
-//import app from './express'
+import app from './express'
 import mongoose from 'mongoose';
-import express from 'express';
-const app = express();
 
 // Morgan configuration
 
