@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import compress from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
-import Template from './../template';
+import userRoutes from './routes/user.routes';
 
 // comment out before building for production
 import devBundle from './devBundle';
@@ -37,5 +37,8 @@ app.use((err, req, res, next) => {
 		console.log(err);
 	}
 });
+
+// User Routes 
+app.use('/', userRoutes);
 
 export default app;
