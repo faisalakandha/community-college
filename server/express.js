@@ -1,3 +1,4 @@
+// Includes 
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
@@ -6,6 +7,9 @@ import compress from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
 import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
+
+
 
 // comment out before building for production
 import devBundle from './devBundle';
@@ -15,6 +19,12 @@ const app = express();
 
 // comment out before building for production
 devBundle.compile(app)
+
+// Morgan Http logger configuration
+
+const morgan = require('morgan');
+app.use(morgan('tiny'));
+morgan(':method :url :status :res[content-length] - :response-time ms');
 
 // Parse body params and attach them to req.body
 app.use(bodyParser.json());
@@ -40,5 +50,8 @@ app.use((err, req, res, next) => {
 
 // User Routes 
 app.use('/', userRoutes);
+
+// Auth Routes 
+app.use('/', authRoutes)
 
 export default app;

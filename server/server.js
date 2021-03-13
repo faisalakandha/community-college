@@ -4,13 +4,6 @@ import app from './express'
 import mongoose from 'mongoose';
 
 
-// Morgan configuration
-
-const morgan = require('morgan');
-app.use(morgan('tiny'));
-morgan(':method :url :status :res[content-length] - :response-time ms');
-
-
 let port = config.port || 3000;
 
 app.listen(port, function onStart(err){
